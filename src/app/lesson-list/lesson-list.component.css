@@ -1,0 +1,15 @@
+table {
+  max-width: 300px;
+  margin: 0 auto 30px auto;
+  padding: 0 10px;
+}
+
+.lesson-viewed {
+  background-color: lightgray;
+}
+
+.viewed {
+  padding: 10px;
+  margin-left: 3px;
+  min-width: 5%;
+}

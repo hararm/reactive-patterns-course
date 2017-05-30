@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ADD_NEW_LESSON, globalEventBus, LESSONS_LIST_AVAILABLE} from './app-data';
 import {testLessons} from '../shared/model/test-lessons';
+import {initializeLessonsList} from './app-data';
+import {setTimeout} from "timers";
 
 @Component({
   selector: 'event-bus-expriments',
@@ -13,13 +14,24 @@ export class EventBusExprimentsComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('Top level component broadcasting all lessons ...')
-    globalEventBus.next(LESSONS_LIST_AVAILABLE,
-      testLessons.slice(0));
+
+    console.log('Top level component broadcasting all lessons ...');
+    initializeLessonsList(testLessons.slice(0));
+
+    setTimeout(() => {
+        const newLesson = {
+          id: Math.random(),
+          description: 'New lesson arriving from the backend'
+        };
+        // TODO
+      }, 10000 );
+
+
+
   }
 
   addLesson(lessonText: string) {
-    globalEventBus.next(ADD_NEW_LESSON, lessonText);
+    // TODO
   }
 
 }

@@ -3,7 +3,7 @@ import {
   lessonsList$,
   Observer
 } from '../event-bus-expriments/app-data';
-import {Lesson} from "../shared/model/lesson";
+import {Lesson} from '../shared/model/lesson';
 
 @Component({
   selector: 'lessons-counter',
@@ -14,12 +14,8 @@ export class LessonsCounterComponent implements OnInit, Observer {
 
   lessonsCounter = 0;
 
-  constructor() {
-    console.log('lesson list component is registered as observer..');
-    lessonsList$.subscribe(this);
-  }
-
   ngOnInit() {
+    lessonsList$.subscribe(this);
   }
 
   next(data: Lesson[]) {
